@@ -4,7 +4,6 @@ const NAV_ITEMS = [
   { label: '학원소개', href: '#about' },
   { label: '커리큘럼', href: '#course' },
   { label: '입시성과', href: '#admission' },
-  { label: '원장소개', href: '#director' },
   { label: '상담문의', href: '#consult' },
 ]
 

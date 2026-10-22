@@ -57,20 +57,6 @@ function Course() {
           </div>
         ))}
       </div>
-
-      <div className="mt-[60px] flex justify-center">
-        <div className="inline-block w-full rounded-2xl border border-border bg-white px-6 py-7 shadow-sm lg:w-4/5 lg:max-w-[900px] lg:px-20 lg:py-[45px]">
-          <p className="mb-[25px] text-[22px] font-bold">
-            특작수학학원 학습 콘텐츠 모아보기
-          </p>
-          <a
-            href="#"
-            className="inline-block rounded-lg bg-accent px-10 py-4 text-[17px] font-bold text-white no-underline transition-colors duration-300 hover:bg-accent-dark"
-          >
-            학습 콘텐츠 바로가기 →
-          </a>
-        </div>
-      </div>
     </section>
   );
 }

@@ -1,25 +1,45 @@
+import resultImg1 from "../../assets/image5.jpg";
+import resultImg2 from "../../assets/image6.jpg";
+import { useEffect, useState } from "react";
+
+const SLIDES = [
+  { src: resultImg1, alt: "입시결과 인포그래픽 1" },
+  { src: resultImg2, alt: "입시결과 인포그래픽 2" },
+];
+const SLIDE_INTERVAL_MS = 4000;
+
 const CARDS = [
   {
-    title: '명문대 진학지도 경험',
-    desc: 'SKY를 비롯한 특수목적대까지\n학종/교과/논술/정시를 두루 지도한 경험',
+    title: "명문대 진학지도 경험",
+    desc: "연고대 및 카이스트, 한의대, 교대 등등의\n학종/교과/정시를 두루 지도한 경험",
   },
   {
-    title: '상위권대 합격률 93%',
-    desc: '인서울 15개 대학 + 지거국 + 특수학과\n전인원 46명중 43명(중복없음)',
+    title: "특목 자사고 지도전문",
+    desc: "북일고, 양지고, 화성고, 동산고, 외고 학생지도 및\n입학을 위한 준비과정을 만들어드립니다.",
   },
   {
-    title: '특목 자사고 지도전문',
-    desc: '지역 전역의 특목 자사고 학생 지도\n과학고, 외고, 국제고 등',
+    title: "내신 우수학생 다수",
+    desc: "중등 만점은 기본\n고등내신 1등급 다수",
   },
-  {
-    title: '내신 우수학생 다수',
-    desc: '중등 만점은 기본\n고등내신 1등급 다수',
-  },
-]
+];
 
 function Admission() {
+  const [current, setCurrent] = useState(0);
+
+  // current가 바뀔 때마다 타이머를 다시 시작해서, 점을 눌러 넘긴 뒤에도 같은 간격 유지
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setCurrent((prev) => (prev + 1) % SLIDES.length),
+      SLIDE_INTERVAL_MS,
+    );
+    return () => clearTimeout(timer);
+  }, [current]);
+
   return (
-    <section id="admission" className="mx-auto w-full max-w-[1200px] px-6 py-[70px]">
+    <section
+      id="admission"
+      className="mx-auto w-full max-w-[1200px] px-6 py-[70px]"
+    >
       <hr className="h-[3px] w-full border-none bg-accent opacity-[0.85]" />
       <h2 className="mt-10 mb-[30px] text-center text-[32px] text-text-h lg:text-[44px]">
         매년 탁월한 입시성과
@@ -36,7 +56,7 @@ function Admission() {
                 {card.title}
               </div>
               <div className="text-[15px] font-medium leading-[1.7] text-black/75 lg:text-[18px]">
-                {card.desc.split('\n').map((line, i) => (
+                {card.desc.split("\n").map((line, i) => (
                   <span key={i}>
                     {line}
                     <br />
@@ -45,23 +65,40 @@ function Admission() {
               </div>
             </div>
           ))}
-
-          <div className="mt-5 text-center text-[22px] font-black leading-[1.55] tracking-[-0.02em] text-accent lg:text-[30px]">
-            언제나 학생들의 최종결과로만 말씀드렸습니다.
-            <br />
-            역사는 계속될 것이며 이제 여러분의 차례입니다.
-          </div>
         </div>
 
-        <div className="flex w-full min-h-[320px] flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-border bg-bg-soft text-[#9aa0a6] shadow-sm">
-          <span className="text-[42px]" aria-hidden="true">
-            🖼
-          </span>
-          <p className="text-[15px] font-semibold">입시결과 인포그래픽 이미지 준비중</p>
+        {/* 왼쪽 카드 영역 기준 세로 가운데 정렬, 일정 간격으로 자동 전환 */}
+        <div className="flex w-full flex-col justify-center">
+          <div className="grid">
+            {SLIDES.map((img, i) => (
+              <img
+                key={img.alt}
+                src={img.src}
+                alt={img.alt}
+                aria-hidden={i !== current}
+                className={`col-start-1 row-start-1 block h-auto w-full self-center rounded-xl shadow-sm transition-opacity duration-700 ${
+                  i === current ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+          </div>
+          <div className="mt-4 flex justify-center gap-2">
+            {SLIDES.map((img, i) => (
+              <button
+                key={img.alt}
+                type="button"
+                onClick={() => setCurrent(i)}
+                aria-label={`${i + 1}번째 이미지 보기`}
+                className={`h-2.5 rounded-full border-none transition-all duration-300 ${
+                  i === current ? "w-6 bg-accent" : "w-2.5 bg-border"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Admission
+export default Admission;

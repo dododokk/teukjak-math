@@ -1,5 +1,12 @@
 const TILES = [
   {
+    key: 'cafe',
+    label: '카페',
+    sub: '공지 · 자료 · 커뮤니티',
+    className: 'bg-[#2aa6a1]',
+    href: 'https://cafe.naver.com/teukjakmath',
+  },
+  {
     key: 'blog',
     label: '블로그',
     sub: '학원 소식 · 학습 정보',
@@ -7,32 +14,18 @@ const TILES = [
     href: 'https://blog.naver.com/akijaki78',
   },
   {
-    key: 'thread',
-    label: '스레드',
-    sub: '짧은 인사이트 · 기록',
+    key: 'instagram',
+    label: '인스타그램',
+    sub: '학원 일상 · 소식',
     className: 'bg-gradient-to-br from-[#ff3b6a] to-[#ff9a2b]',
-    href: undefined,
-  },
-  {
-    key: 'youtube',
-    label: '유튜브',
-    sub: '수업/설명 영상 · 입시 전략',
-    className: 'bg-[#111111]',
-    href: undefined,
-  },
-  {
-    key: 'cafe',
-    label: '카페',
-    sub: '공지 · 자료 · 커뮤니티',
-    className: 'bg-[#2aa6a1]',
-    href: 'https://cafe.naver.com/teukjakmath',
+    href: 'https://www.instagram.com/teukjak__sanbon?mdxt=MWx0Z2JqdDF4aDB6OA==',
   },
 ]
 
 function Channels() {
   return (
     <section className="mx-auto w-full max-w-[1100px] px-6 pt-5 pb-[60px]">
-      <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-3">
         {TILES.map((tile) => (
           <a
             key={tile.key}

@@ -1,6 +1,6 @@
 function ConsultCta() {
   return (
-    <section id="consult" className="mx-auto w-full max-w-[1000px] px-6 pt-[60px] pb-5 text-center">
+    <section id="consult" className="mx-auto w-full max-w-[1200px] px-6 pt-[60px] pb-5 text-center">
       <p className="mb-7 text-2xl font-extrabold text-text-h lg:text-[30px]">
         상담이 필요하신가요?
       </p>
