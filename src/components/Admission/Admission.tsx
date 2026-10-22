@@ -1,10 +1,12 @@
 import resultImg1 from "../../assets/image5.jpg";
 import resultImg2 from "../../assets/image6.jpg";
+import resultImg3 from "../../assets/image7.jpg";
 import { useEffect, useState } from "react";
 
 const SLIDES = [
   { src: resultImg1, alt: "입시결과 인포그래픽 1" },
   { src: resultImg2, alt: "입시결과 인포그래픽 2" },
+  { src: resultImg3, alt: "입시결과 인포그래픽 3" },
 ];
 const SLIDE_INTERVAL_MS = 4000;
 
@@ -76,7 +78,7 @@ function Admission() {
                 src={img.src}
                 alt={img.alt}
                 aria-hidden={i !== current}
-                className={`col-start-1 row-start-1 block h-auto w-full self-center rounded-xl shadow-sm transition-opacity duration-700 ${
+                className={`col-start-1 row-start-1 block aspect-[6/5] w-full self-center rounded-xl object-cover shadow-sm transition-opacity duration-700 ${
                   i === current ? "opacity-100" : "opacity-0"
                 }`}
               />
