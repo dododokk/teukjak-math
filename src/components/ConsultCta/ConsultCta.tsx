@@ -6,7 +6,9 @@ function ConsultCta() {
       </p>
 
       <a
-        href="#"
+        href="https://forms.gle/TfHkPg28e4rziKec7"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block rounded-[50px] bg-gradient-to-br from-accent to-[#e64545] px-9 py-6 text-[20px] font-black tracking-[-0.01em] text-white no-underline shadow-[0_12px_30px_rgba(207,40,40,0.35)] transition-all duration-[250ms] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(207,40,40,0.45)] lg:px-[52px] lg:py-[34px] lg:text-[26px]"
       >
         상담 예약{' '}
